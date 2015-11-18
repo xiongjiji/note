@@ -9,4 +9,18 @@
         <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     </head>
 <body>
-    <div class="text-center page-title"><%= title %></div>
+	<div class="clearfix page-nav">
+    <% if(user) { %>
+        <div class="pull-left nav-username">Hello! <a href="/"><%= user.username %></a></div>
+        <div class="pull-left"><a href="/post">发表</a></div>
+        <div class="pull-right nav-quit"><a href="/quit">退出</a></div>
+    <% } else { %>
+        <% if(page == 'login') { %>
+            <div class="pull-right nav-register"><a href="/reg">注册</a></div>
+        <% } else { %>
+            <div class="pull-right nav-login"><a href="/log">登录</a></div>
+        <% } %>
+    <% } %>
+
+    </div>
+    <div class="text-center page-title" style="background:pink;margin-bottom:2rem;padding:0.5rem;text-align:center;color:white;"><%= title %></div>
